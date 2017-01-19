@@ -1,0 +1,7 @@
+######### Examples of Messages traded by the Client and Server #############
+
+***** Client-sent Messages *******
+#
+LOGIN&-u=fbeneditovm&-p=fadaalada
+CREATE_EVENT&-name=myevent1&-timestamp=2016-12-18 14:00:00-03&-local=meu lugar feliz&-desc=evento teste
+SHOW_EVENTS&-data=all
