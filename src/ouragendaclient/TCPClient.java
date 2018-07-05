@@ -31,16 +31,18 @@ public class TCPClient extends Thread{
     @Override
     public void run(){
         String buffer;
-        int port;
+        
         try{
             while(!mySocket.isClosed()){
                 buffer = in.readUTF();
                 if(buffer.equalsIgnoreCase("exit"))
                     break;
-                messageHandler.handle(buffer);
+                if(!buffer.equals(""))
+                    messageHandler.handle(buffer);
             }
         }catch(IOException e){System.out.println("IO: "+e.getMessage());}
     }
+    
     public void sendMessage(String message){
         try {
             out.writeUTF(message);
@@ -48,4 +50,5 @@ public class TCPClient extends Thread{
             Logger.getLogger(TCPClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }
